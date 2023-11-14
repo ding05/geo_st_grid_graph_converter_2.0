@@ -7,8 +7,8 @@ from converter.output import *
 import numpy as np
 
 def process_files(input_filepath: str, output_dirpath: str, 
-                  fixed_edges: str, is_directed: str,
-                  get_coords: str) -> None:
+                  fixed_edges: str, is_directed: str, 
+                  is_full_to_selected_nodes: str, get_coords: str) -> None:
     """
     Read the NC file that contains a spatiotemporal grid, and output the 
     converted graph in NPY files.
@@ -16,6 +16,7 @@ def process_files(input_filepath: str, output_dirpath: str,
     :param output_dirpath: the path to the output directory
     :param fixed_edges: the fixed number of edges for all nodes
     :param is_directed: if the generated graph is directed
+    :param is_full_to_selected_nodes: if all edges are added to the selected nodes
     :param get_coords: if the node coordinates are output
     """
     # Generate and save the node feature tensor.
@@ -50,6 +51,8 @@ def process_files(input_filepath: str, output_dirpath: str,
     # Convert the string into the boolean.
     is_directed_bool = True if str(is_directed) is 'yes' else False
     is_directed_printed = '_directed' if is_directed_bool else ''
-    adj_mat = get_adj_mat(node_feats, fixed_edges, is_directed_bool)
+    is_full_to_selected_nodes_bool = True if str(is_full_to_selected_nodes) is 'yes' else False
+    is_full_to_selected_nodes_printed = '_12' if is_directed_bool else ''
+    adj_mat = get_adj_mat(node_feats, fixed_edges, is_directed_bool, is_full_to_selected_nodes)
     output(adj_mat, output_dirpath, 'adj_mat' + '_' + str(fixed_edges) + 
-           is_directed_printed)
+           is_full_to_selected_nodes_printed + is_directed_printed)
