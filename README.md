@@ -12,7 +12,7 @@ Python 3.7.15
 2. Navigate to [this](.) directory, which contains the README.md file.
 3. Run the program as a module: `python -m converter -h`. This will print the help message.
 4. Run the program as a module with real inputs: `python -m converter <input_filepath> <output_dirpath> <corr_threshold> <is_directed> <get_coords>`
-   For input, i.e. `python -m converter data/era5_sst_011940_122022_globe.nc out 500 no no`
+   For input, i.e. `python -m converter data/era5_sst_011940_122022_globe.nc out 25 no yes no`
 
 ### converter Usage:
 
@@ -20,11 +20,12 @@ Python 3.7.15
 usage: python -m converter [-h] input_filepath output_dirpath
 
 positional arguments:
-  input_filepath     Input File Pathname
-  output_dirpath     Output Directory Pathname
-  fixed_edges        Fixed Number of Edges for All Nodes
-  is_directed        If Directed Graphs: `yes` or `no`
-  get_coords         If Output Coordinates: `yes` or `no`
+  input_filepath             Input File Pathname
+  output_dirpath             Output Directory Pathname
+  fixed_edges                Fixed Number of Edges for All Nodes
+  is_directed                If Directed Graphs: `yes` or `no`
+  is_full_to_selected_nodes  If All Edges to Selected Nodes: 'yes' or 'no'
+  get_coords                 If Output Coordinates: `yes` or `no`
 
 optional arguments:
   -h, --help  show this help message and exit
