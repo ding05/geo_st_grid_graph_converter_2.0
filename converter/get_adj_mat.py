@@ -14,7 +14,7 @@ def get_adj_mat(node_feat_mat: np.ndarray, fixed_edges: int,
     """
     # Compute the correlations between node features and keep the fixed_edges ones 
     # with largest absolute values, masked as tuples.
-    # Time complexity: calculate correlations: O(n^2 * m * log(m)), sort: O(n^2 log(n)),
+    # Time complexity: calculate correlations: O(n^2 * m * log(m)), sort: O(n^2 * log(n)),
     # where n is the number of nodes and m is the number of features.
     # Space complexity: O(n^2)
     selected_nodes = [5612, 5104, 4610, 3260, 5242, 2004, 5263, 2801, 2058, 5005, 3124, 1734]
